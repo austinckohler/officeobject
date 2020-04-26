@@ -19,3 +19,13 @@ for (const key in object) {
 for (const key in object) {
     console.log(object[key])
 }
+
+const dogs = {
+    bix: "arg",
+    mesa: "woof",
+    rosie: "muah",
+}
+
+for (const value in dogs) {
+    console.log(dogs[value])
+}
