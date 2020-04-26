@@ -140,19 +140,30 @@ const theOffice = {
   // #1 Return the total funnyLevel of all characters (10598)
   // we need to reduce to an array of funny levels
   
-
-  const funnyLevels = []
-  for (person in theOffice) {
-    funnyLevels.push(theOffice[person].funnyLevel)
-  }
-  const totalFunnyLevel = funnyLevels.reduce(sum)
+  // const funnyLevels = []
+  // for (person in theOffice) {
+  //   funnyLevels.push(theOffice[person]["funnyLevel"])
+  // }
+  // const totalFunnyLevel = funnyLevels.reduce(function (totalFunnyLevel, currentFunnylevel) {
+  //   return totalFunnyLevel += currentFunnylevel
+  // })
+  // console.log(totalFunnyLevel)
+    
+  const totalFunnyLevel = Object
+  .values(theOffice)
+  .map(getFunnyLevel)
+  .reduce(sum)
   
-  function sum(total, number)
-  {
+  console.log(totalFunnyLevel)
+  
+  function sum(total, number) {
      return total += number
    }
-
-  console.log(totalFunnyLevel)
+  
+  function getFunnyLevel(person) {
+    return person.funnyLevel
+  }
+  
 
 
   
