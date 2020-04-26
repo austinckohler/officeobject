@@ -150,27 +150,65 @@ const theOffice = {
   // console.log(totalFunnyLevel)
     
   const totalFunnyLevel = Object
-  .values(theOffice) // taking values of object, turning into an array
+  .values(theOffice) // taking values of object(people), turning into an array
   .map(getFunnyLevel) //mapping through array to get each persons funny level 
-  .reduce(sum) //adding each persons funny level for a sum of funny levels
+  .reduce(sum); //adding each persons funny level for a sum of funny levels
   
   console.log(totalFunnyLevel)
   
   function sum(total, number) {
-     return total += number
+     return total += number;
    }
   
   function getFunnyLevel(person) {
-    return person.funnyLevel
+    return person.funnyLevel;
+  }
+
+  function isSales(person) {
+  return person.department === "sales"
+  }
+
+  function isMale(person) {
+    return person.lastName !== 'vance'
+  }
+
+  function areChildren(person) {
+    return person.children
   }
   
+  function getChildren(person) {
+    return person.children
+  }
 
-
-  
   
   // #2 Return the total funnyLevel of all salesmen (257)
-  
-  
+  const getSalesmenFunnyLevel = Object
+  .values(theOffice) // taking values of object(people), turning into an array
+  .filter(isSales)
+  .map(getFunnyLevel) //mapping through array to get each persons funny level 
+  .reduce(sum) //adding each persons funny level for a sum of funny levels
+  console.log(getSalesmenFunnyLevel)
+
+ const onlySalesmanFunnyLevel = Object
+  .values(theOffice) // taking values of object(people), turning into an array
+  .filter(isSales)
+  .filter(isMale)
+  .map(getFunnyLevel) //mapping through array to get each persons funny level 
+  .reduce(sum) //adding each persons funny level for a sum of funny levels
+
+  console.log(onlySalesmanFunnyLevel)
+
+  const childrenOfTheOffice = Object
+  .values(theOffice) // taking values of object(people), turning into an array
+  .filter(areChildren)
+  .map(getChildren)
+
+  // .map(getFunnyLevel) //mapping through array to get each persons funny level 
+   
+ console.log(childrenOfTheOffice)
+
+    
+    
   // #3 Return an object with the department as a key and an array of the members of that department as the value 
     // {
     //   sales: [jim, stanley, phyllis, dwight], 
