@@ -150,9 +150,9 @@ const theOffice = {
   // console.log(totalFunnyLevel)
     
   const totalFunnyLevel = Object
-  .values(theOffice)
-  .map(getFunnyLevel)
-  .reduce(sum)
+  .values(theOffice) // taking values of object, turning into an array
+  .map(getFunnyLevel) //mapping through array to get each persons funny level 
+  .reduce(sum) //adding each persons funny level for a sum of funny levels
   
   console.log(totalFunnyLevel)
   
